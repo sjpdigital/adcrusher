@@ -9,7 +9,8 @@ to upload to an ad server (like Flashtalking).
 This script requires you have a few things available in your path:
 - `pngquant`, available via `brew`
 - `jpegoptim`, also available via `brew`
-- `uglifyjs`, installed globally via `npm` (`npm install --global uglify-js`)
+- `svgo`, installed globally via `npm` (`npm install --global svgo`)
+- `uglifyjs`, also an `npm` package (`npm install --global uglify-js`)
 - `html-minifier`, also an `npm` package (`npm install --global html-minifier`)
 
 It should complain if you're missing these.
