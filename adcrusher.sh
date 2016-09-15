@@ -2,6 +2,7 @@
 
 command -v pngquant >/dev/null 2>&1 || { printf >&2 "I require pngquant but it's not installed. Aborting."; exit 1; }
 command -v jpegoptim >/dev/null 2>&1 || { printf >&2 "I require jpegoptim but it's not installed. Aborting."; exit 1; }
+command -v svgo >/dev/null 2>&1 || { printf >&2 "I require svgo but it's not installed. Aborting."; exit 1; }
 command -v uglifyjs >/dev/null 2>&1 || { printf >&2 "I require uglifyjs but it's not installed. Aborting."; exit 1; }
 command -v html-minifier >/dev/null 2>&1 || { printf >&2 "I require html-minifier but it's not installed. Aborting."; exit 1; }
 
@@ -37,6 +38,9 @@ do
 
     printf "minify .jpg\n"
     find . -name "*.jpg" -exec jpegoptim -m 70 -t -s {} \;
+
+    printf "minify .svg\n"
+    find . -name "*.svg" -exec svgo {} \;
 
     printf "minify .js\n"
     find . -name "*.js" ! -name "manifest.js" -exec uglifyjs --compress --mangle --screw-ie8 --output {} -- {} \;
